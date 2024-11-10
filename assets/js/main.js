@@ -80,39 +80,4 @@ jQuery(document).ready(function($) {
     });
     
     
-    // AJAX SUBSCRIBE FORM
-    $('.subscribe-form').submit(function() {
-
-        var postdata = $('.subscribe-form').serialize();
-
-        $.ajax({
-
-            type: 'POST',
-            url: 'assets/php/subscribe.php',
-            data: postdata,
-            dataType: 'json',
-            success: function(json) {
-
-                $('.subscribe-form').removeClass("form-error");
-
-                if(json.valid === 0) {
-                    
-                    $('.subscribe-form').addClass("form-error");
-                    
-                } else {
-
-                    $('.subscribe-form').addClass("form-success");
-                    $('.subscribe-form input,.subscribe-form button').val('').prop('disabled', true);
-                    
-                }
-                
-            }
-
-        });
-
-        return false;
-
-    });
-    
-    
 });
